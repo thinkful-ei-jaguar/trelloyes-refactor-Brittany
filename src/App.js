@@ -1,20 +1,26 @@
 import React from 'react';
-import Card from './Card';
+
 import './App.css';
 import List from './List';
 //import STORE from './store';
 function App(props) {
+  
+
+  console.log("this is the props",props);
+  const list = props.store.lists.map(list=>{
+    return <List key={list.id} header={list.header} cards={list.cardIds.map(id=>{
+      return props.store.allCards[id]
+    })} />
+  }) 
+  
   return (
     <main className="App" >
-<header className="App-header">
-      <h1>Trelloyes!</h1>
-    </header>
+    <header className="App-header">
+      <h1>TrelloYes!</h1>
+      </header>
 
     <div className="App-List">
-    {props.STORE.lists.map(function(list){
-   <List header={list.header} cards= />
-    })}
- 
+    {list}
     
 
 
@@ -23,6 +29,8 @@ function App(props) {
 
     </main>
   );
+
+
 }
 
 export default App;

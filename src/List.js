@@ -1,16 +1,20 @@
 import React from 'react';
-
+import Card from './Card';
+import './list.css';
 
 export default function List(props){
     return(
 
-<section class="List" >
-    <header class="List-header">
-          <h2>First list</h2>
+<section className="List" >
+    <header className="List-header">
+          <h2>{props.header}</h2>
         </header>
-<div className="List-cards" header={props.header}>
+<div className="List-cards">
 
-<Card title="" content="" />
+{props.cards.map(card=>{
+    return <Card key={card.id} title={card.title} content={card.content} />
+})}
+
 
 </div>
 
