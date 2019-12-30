@@ -1,14 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
+import Card from './Card';
 import './App.css';
-
-function App() {
+import List from './List';
+//import STORE from './store';
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-      <h1>Trelloyes</h1>
-      </header>
+    <main className="App" >
+<header className="App-header">
+      <h1>Trelloyes!</h1>
+    </header>
+
+    <div className="App-List">
+    {props.STORE.lists.map(function(list){
+   <List header={list.header} cards= />
+    })}
+ 
+    
+
+
     </div>
+
+
+    </main>
   );
 }
 
